@@ -46,7 +46,7 @@ def chat():
         chat()
     elif question == "BYE" or question == "bye":
         with open('output.txt', 'a') as f:
-            f.write('\n'.join(more_lines))
+            f.write('\n'.join(chat_archive))
 
         print("You can find the chat archive in your files. Take care...")
 
