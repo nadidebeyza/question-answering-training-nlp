@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/deep_project_qa_model" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/my_awesome_qa_model" vcs="Git" />
   </component>
 </project>
