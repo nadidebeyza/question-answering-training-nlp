@@ -5,7 +5,7 @@ import torch
 
 # Gets .txt file as input
 with open('input.txt', 'r') as file:
-   lines= file.readlines()
+   lines = file.readlines()
 
 for line in lines:
    context = line
@@ -20,13 +20,15 @@ def chat():
 
     chat_archive.append(question)
 
-    question_answerer = pipeline("question-answering", model="my_awesome_qa_model")
+    my_trained_model = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-en-nl")
+
+    question_answerer = pipeline("question-answering", model="deep_project_qa_model")
     question_answerer(question=question, context=context)
 
-    tokenizer = AutoTokenizer.from_pretrained("my_awesome_qa_model")
+    tokenizer = AutoTokenizer.from_pretrained("deep_project_qa_model")
     inputs = tokenizer(question, context, return_tensors="pt")
 
-    model = AutoModelForQuestionAnswering.from_pretrained("my_awesome_qa_model")
+    model = AutoModelForQuestionAnswering.from_pretrained("deep_project_qa_model")
     with torch.no_grad():
         outputs = model(**inputs)
     # Get the highest probability from the model output for the start and end positions
